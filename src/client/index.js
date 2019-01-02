@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './app.css';
 
 class App extends React.Component {
 
@@ -14,3 +13,5 @@ ReactDOM.render(
   <App/>,
   document.getElementById('root')
 );
+
+module.hot.accept();
