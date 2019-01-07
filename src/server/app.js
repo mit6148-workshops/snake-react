@@ -6,7 +6,7 @@ const { initNewGame, nextStep } = require('./game');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const publicPath = path.resolve(__dirname, '..', 'client');
+const publicPath = path.resolve(__dirname, '..', 'client', 'dist');
 
 let gameInterval;
 let gameTick = 300;
@@ -19,6 +19,14 @@ http.listen(3000, () => {
 });
 
 let game = {};
+game = initNewGame();
+
+gameInterval = setInterval(
+  () => {
+    getNextGameState();
+  },
+  gameTick
+);
 
 // Websocket shenanigans
 
@@ -27,13 +35,7 @@ io.on('connection', (socket) => {
   console.log('a user connected they are user number ' + num_connected);
   socket.emit('new_game', game);
   if (num_connected === 1) {
-    game = initNewGame();
-    gameInterval = setInterval(
-      () => {
-        getNextGameState(socket);
-      },
-      gameTick
-    );
+
   }
 
   socket.on('move', (direction) => {
@@ -52,7 +54,7 @@ io.on('connection', (socket) => {
 });
 
 
-const getNextGameState = (socket) => {
+const getNextGameState = () => {
   console.log("updating game to the next state.");
   // console.log("game is " + (game))
   game = nextStep(game);

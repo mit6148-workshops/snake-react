@@ -1,8 +1,6 @@
 import React from "react";
 import Game from "./Game";
 
-import { hot } from 'react-hot-loader/root'
-
 class App extends React.Component {
 
   render() {
@@ -13,4 +11,4 @@ class App extends React.Component {
   }
 }
 
-export default hot(App)
+export default App;
