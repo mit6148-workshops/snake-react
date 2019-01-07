@@ -19,14 +19,6 @@ http.listen(3000, () => {
 });
 
 let game = {};
-game = initNewGame();
-
-gameInterval = setInterval(
-  () => {
-    getNextGameState();
-  },
-  gameTick
-);
 
 // Websocket shenanigans
 
@@ -35,7 +27,13 @@ io.on('connection', (socket) => {
   console.log('a user connected they are user number ' + num_connected);
   socket.emit('new_game', game);
   if (num_connected === 1) {
-
+    game = initNewGame();
+    gameInterval = setInterval(
+      () => {
+        getNextGameState(socket);
+      },
+      gameTick
+    );
   }
 
   socket.on('move', (direction) => {
@@ -54,7 +52,7 @@ io.on('connection', (socket) => {
 });
 
 
-const getNextGameState = () => {
+const getNextGameState = (socket) => {
   console.log("updating game to the next state.");
   // console.log("game is " + (game))
   game = nextStep(game);
