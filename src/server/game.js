@@ -1,6 +1,9 @@
+const { GRID_LENGTH } = require("../config.js");
+
+
 const randomNumber = () => {
-  return Math.floor(Math.random()*20);
-}
+  return Math.floor(Math.random()*GRID_LENGTH);
+};
 
 const initNewPlayer = () => {
   return {
@@ -19,13 +22,13 @@ const getNextSquare = (player) => {
   let x = player.snakeCoords[0].x;
   switch(player.direction){
     case 0:
-      y = player.snakeCoords[0].y <= 0 ? 20 - 1 : player.snakeCoords[0].y - 1; break;
+      y = player.snakeCoords[0].y <= 0 ? GRID_LENGTH - 1 : player.snakeCoords[0].y - 1; break;
     case 1:
-      x = player.snakeCoords[0].x <= 0 ? 20 - 1 : player.snakeCoords[0].x - 1; break;
+      x = player.snakeCoords[0].x <= 0 ? GRID_LENGTH - 1 : player.snakeCoords[0].x - 1; break;
     case 2:
-      y = player.snakeCoords[0].y >= 20 - 1 ? 0 : player.snakeCoords[0].y + 1; break;
+      y = player.snakeCoords[0].y >= GRID_LENGTH - 1 ? 0 : player.snakeCoords[0].y + 1; break;
     case 3:
-      x = player.snakeCoords[0].x >= 20 - 1 ? 0 : player.snakeCoords[0].x + 1; break;
+      x = player.snakeCoords[0].x >= GRID_LENGTH - 1 ? 0 : player.snakeCoords[0].x + 1; break;
   }
 
   return {x: x, y: y};

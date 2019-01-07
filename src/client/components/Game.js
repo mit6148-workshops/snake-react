@@ -1,6 +1,7 @@
 import React from "react";
 import '../css/game.css'
 import io from 'socket.io-client';
+import { GRID_LENGTH } from "../../config";
 
 export default class Game extends React.Component {
 
@@ -26,9 +27,9 @@ export default class Game extends React.Component {
 
   emptyBoard = () => {
     let rows = [];
-    for (let row_num = 0; row_num < 20; row_num++){
+    for (let row_num = 0; row_num < GRID_LENGTH; row_num++){
       rows.push([]); //push an empty row
-      for (let col_num = 0; col_num < 20; col_num++){
+      for (let col_num = 0; col_num < GRID_LENGTH; col_num++){
         rows[row_num].push(0);
       }
     }
@@ -79,7 +80,7 @@ export default class Game extends React.Component {
       <div className={"game-container"}>
         <div className={"game-title"}>Snake Game </div>
       <div className="board">
-        {Array.from(Array(20).keys()).map(y =>
+        {Array.from(Array(GRID_LENGTH).keys()).map(y =>
           <Row
             contents={this.state.board[y]}
             y={y}
@@ -100,9 +101,9 @@ class Row extends React.Component{
   render() {
     return(
       <div className="board-row">
-        {Array.from(Array(20).keys()).map(x =>
+        {Array.from(Array(GRID_LENGTH).keys()).map(x =>
           <Cell
-            key={20*this.props.y + x}
+            key={GRID_LENGTH*this.props.y + x}
             x={x}
             y={this.props.y}
             cell_type={this.props.contents[x]}
