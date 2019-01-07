@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
 });
 
 
-const getNextGameState = (socket) => {
+const getNextGameState = () => {
   console.log("updating game to the next state.");
   // console.log("game is " + (game))
   game = nextStep(game);
