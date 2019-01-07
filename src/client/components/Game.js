@@ -10,16 +10,16 @@ export default class Game extends React.Component {
     console.log(this.socket.io)
     switch(e.key){
       case "w":
-        this.socket.emit('move', 'up');
+        this.socket.emit('move', 0);
         break;
       case "a":
-        this.socket.emit('move', 'left');
+        this.socket.emit('move', 1);
         break;
       case "s":
-        this.socket.emit('move', 'down');
+        this.socket.emit('move', 2);
         break;
       case "d":
-        this.socket.emit('move', 'right');
+        this.socket.emit('move', 3);
         break;
     }
   };

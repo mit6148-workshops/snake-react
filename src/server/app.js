@@ -39,7 +39,9 @@ io.on('connection', (socket) => {
   socket.on('move', (direction) => {
     console.log("got a move");
     console.log(direction);
-    game.player.direction = direction;
+    if ((direction - game.player.direction) % 2 !== 0){
+      game.player.direction = direction;
+    }
   });
 
   socket.on('disconnect', () => {

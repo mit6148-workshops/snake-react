@@ -10,7 +10,7 @@ const initNewPlayer = () => {
         y: randomNumber()
       }
     ],
-    direction: "up"
+    direction: 0
   }
 };
 
@@ -18,13 +18,13 @@ const getNextSquare = (player) => {
   let y = player.snakeCoords[0].y;
   let x = player.snakeCoords[0].x;
   switch(player.direction){
-    case "up":
+    case 0:
       y = player.snakeCoords[0].y <= 0 ? 20 - 1 : player.snakeCoords[0].y - 1; break;
-    case "down":
-      y = player.snakeCoords[0].y >= 20 - 1 ? 0 : player.snakeCoords[0].y + 1; break;
-    case "left":
+    case 1:
       x = player.snakeCoords[0].x <= 0 ? 20 - 1 : player.snakeCoords[0].x - 1; break;
-    case "right":
+    case 2:
+      y = player.snakeCoords[0].y >= 20 - 1 ? 0 : player.snakeCoords[0].y + 1; break;
+    case 3:
       x = player.snakeCoords[0].x >= 20 - 1 ? 0 : player.snakeCoords[0].x + 1; break;
   }
 
