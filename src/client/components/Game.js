@@ -78,7 +78,6 @@ export default class Game extends React.Component {
     console.log(this.state.board)
     return (
       <div className={"game-container"}>
-        <div className={"game-title"}>Snake Game </div>
       <div className="board">
         {Array.from(Array(GRID_LENGTH).keys()).map(y =>
           <Row
