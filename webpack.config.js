@@ -1,6 +1,6 @@
 const path = require('path');
-const entryFile = path.resolve(__dirname, 'src', 'client', 'index.js');
-const outputDir = path.resolve(__dirname, 'src', 'client', 'dist');
+const entryFile = path.resolve(__dirname, 'client', 'src', 'index.js');
+const outputDir = path.resolve(__dirname, 'client', 'dist');
 
 const webpack = require('webpack');
 
@@ -39,7 +39,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: './src/client/dist',
+    contentBase: './client/dist',
     hot: true,
     proxy: {
       '/api': 'http://localhost:3000'

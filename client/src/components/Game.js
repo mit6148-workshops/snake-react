@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/game.css'
 import io from 'socket.io-client';
-import { GRID_LENGTH } from "../../config";
+import { GRID_LENGTH } from "../../../config";
 
 export default class Game extends React.Component {
 
