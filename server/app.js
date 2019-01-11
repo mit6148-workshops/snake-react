@@ -10,7 +10,8 @@ const publicPath = path.resolve(__dirname, '..', 'client', 'dist');
 
 let gameInterval;
 let gameTick = 300;
-let num_connected = 0;
+let gameStarted = false;
+let numConnected = 0;
 
 app.use('/api', api );
 app.use(express.static(publicPath));
@@ -23,10 +24,9 @@ let game = {};
 // Websocket shenanigans
 
 io.on('connection', (socket) => {
-  num_connected += 1;
-  console.log('a user connected they are user number ' + num_connected);
-  socket.emit('new_game', game);
-  if (num_connected === 1) {
+  numConnected += 1;
+  console.log('a user connected they are user number ' + numConnected);
+  if (!gameStarted) {
     game = initNewGame();
     gameInterval = setInterval(
       () => {
@@ -34,11 +34,11 @@ io.on('connection', (socket) => {
       },
       gameTick
     );
+    socket.emit('new_game', game);
+    gameStarted = true;
   }
 
   socket.on('move', (direction) => {
-    console.log("got a move");
-    console.log(direction);
     if ((direction - game.player.direction) % 2 !== 0){
       game.player.direction = direction;
     }
@@ -46,17 +46,21 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log("a user dced");
-    num_connected -= 1;
+    numConnected -= 1;
+    clearInterval(gameInterval)
+    if (numConnected === 0) {
+      gameStarted = false;
+    }
   })
 
 });
 
 
 const getNextGameState = () => {
-  console.log("updating game to the next state.");
-  // console.log("game is " + (game))
-  game = nextStep(game);
-  io.emit ('update_game', game);
+  if (!game.game_over) {
+    game = nextStep(game);
+    io.emit('update_game', game);
+  }
 };
 
 

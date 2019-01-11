@@ -47,10 +47,8 @@ const initNewGame = () => {
 };
 
 const nextStep = (currGame) => {
-  // console.log(currGame);
   let head = getNextSquare(currGame.player);
   if (head.x === currGame.food.x && head.y === currGame.food.y) {
-    console.log("we hit the food")
     currGame.food = {
       x: randomNumber(),
       y: randomNumber()
@@ -59,11 +57,15 @@ const nextStep = (currGame) => {
   else {
     currGame.player.snakeCoords.pop();
   }
-  currGame.player.snakeCoords.unshift(head);
-  if (currGame.player.snakeCoords.includes(head)){
-    currGame.game_over = true;
+  for (let i = 0; i < currGame.player.snakeCoords.length; i++) {
+    let coord = currGame.player.snakeCoords[i];
+    if (coord.x === head.x && coord.y === head.y){
+      currGame.game_over = true;
+    }
   }
-  console.log(currGame)
+  if (!currGame.game_over) {
+    currGame.player.snakeCoords.unshift(head);
+  }
   return currGame;
 
 };

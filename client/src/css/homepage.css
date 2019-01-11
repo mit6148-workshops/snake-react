@@ -1,0 +1,41 @@
+.center{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.game-title{
+    font-size: 100px;
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+
+.start-button {
+    width: 20%;
+    align-self: center;
+    cursor: pointer;
+    font-size: 30px;
+    background-color: transparent;
+    line-height: 1;
+    color: #3281ff;
+    border: 3px solid #3281ff;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.start-button:hover{
+    background-color: #3281ff;
+    color: white;
+}
+
