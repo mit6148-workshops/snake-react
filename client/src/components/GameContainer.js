@@ -1,5 +1,5 @@
 import React from "react";
-import Game from "./Game";
+import GameBoard from "./game/GameBoard";
 import HomePage from "./HomePage";
 
 export default class GameContainer extends React.Component {
@@ -22,7 +22,7 @@ export default class GameContainer extends React.Component {
         );
       case 1:
         return (
-          <Game />
+          <GameBoard />
         )
     }
   }
