@@ -1,6 +1,6 @@
 import React from "react";
-import '../css/game.css';
-import { GRID_LENGTH } from "../../../config";
+import '../../css/game.css';
+import { GRID_LENGTH } from "../../../../config";
 import Cell from "./Cell";
 
 export default class Row extends React.Component{
