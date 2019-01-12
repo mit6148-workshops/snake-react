@@ -7,9 +7,6 @@ import GameOver from "./GameOver";
 export default class Game extends React.Component {
 
   keyDownBound = (e) => {
-    console.log("key was pressed!");
-    console.log(e.key)
-    console.log(this.socket.io)
     switch(e.key){
       case "w":
         this.socket.emit('move', 0);
@@ -38,18 +35,13 @@ export default class Game extends React.Component {
     return rows;
   };
 
-  updateBoard = (data) => {
-    console.log('updating board')
-    console.log(data);
+  updateBoard = (data) => {;
     let newBoard = this.emptyBoard();
     newBoard[data.food.y][data.food.x] = 3;
-    for (var i in data.player.snakeCoords){
-      // console.log(snakeCoord)
+    for (let i in data.player.snakeCoords) {
       newBoard[data.player.snakeCoords[i].y][data.player.snakeCoords[i].x] = 1
     }
     this.setState({board: newBoard});
-    console.log("set state. new board is: ")
-    console.log(this.state.board)
     if (data.game_over) {
       this.setState({isGameOver: true})
     }

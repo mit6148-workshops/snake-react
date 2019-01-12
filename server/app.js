@@ -15,6 +15,11 @@ let numConnected = 0;
 
 app.use('/api', api );
 app.use(express.static(publicPath));
+
+app.get(['/rules'], function (req, res) {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 http.listen(3000, () => {
   console.log(`Listening on port 3000 and looking in folder ${publicPath}`);
 });
@@ -30,7 +35,7 @@ io.on('connection', (socket) => {
     game = initNewGame();
     gameInterval = setInterval(
       () => {
-        getNextGameState(socket);
+        getNextGameState();
       },
       gameTick
     );
@@ -53,15 +58,15 @@ io.on('connection', (socket) => {
     }
   })
 
+  const getNextGameState = () => {
+    if (!game.game_over) {
+      game = nextStep(game);
+      io.emit('update_game', game);
+    }
+  };
+
 });
 
-
-const getNextGameState = () => {
-  if (!game.game_over) {
-    game = nextStep(game);
-    io.emit('update_game', game);
-  }
-};
 
 
 
