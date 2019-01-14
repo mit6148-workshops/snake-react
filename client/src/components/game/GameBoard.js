@@ -66,9 +66,6 @@ export default class GameBoard extends React.Component {
   };
 
   render() {
-
-    const gameOverModal = this.state.isGameOver ? (<GameOver /> ) : (null);
-
     return (
       <div className="game-container">
         <div className="board">
@@ -80,7 +77,6 @@ export default class GameBoard extends React.Component {
             />
           ))}
         </div>
-        {gameOverModal}
       </div>
     );
   }
