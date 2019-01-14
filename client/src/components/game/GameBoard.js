@@ -18,8 +18,7 @@ export default class GameBoard extends React.Component {
     });
 
     this.state = {
-      isGameOver: false,
-      boardContent: this.emptyBoard(),
+      
     };
   }
 
