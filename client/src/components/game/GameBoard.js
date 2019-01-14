@@ -2,7 +2,6 @@ import React from "react";
 import "../../css/game.css"
 import io from "socket.io-client";
 import { GRID_LENGTH } from "../../../../config";
-import GameOver from "./GameOver";
 import Row from "./Row";
 
 export default class GameBoard extends React.Component {
@@ -68,20 +67,11 @@ export default class GameBoard extends React.Component {
 
   render() {
 
-    const gameOverModal = this.state.isGameOver ? (<GameOver /> ) : (null);
-
     return (
       <div className="game-container">
         <div className="board">
-          {Array.from(Array(GRID_LENGTH).keys()).map(y => (
-            <Row
-              rowContent={this.state.boardContent[y]}
-              y={y}
-              key={y}
-            />
-          ))}
+          {/* TODO Your board render code here*/}
         </div>
-        {gameOverModal}
       </div>
     );
   }

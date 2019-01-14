@@ -23,7 +23,8 @@ export default class Cell extends React.Component{
 
   render() {
     return (
-      <div className={"cell " + this.getCellClass(this.props.cellContent)} x={this.props.x} y={this.props.y} />
+      // TODO: Fill in the div to render cell
+      <div />
     );
   }
 }

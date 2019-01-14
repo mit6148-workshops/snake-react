@@ -11,14 +11,7 @@ export default class Row extends React.Component{
   render() {
     return (
       <div className="board-row">
-        {Array.from(Array(GRID_LENGTH).keys()).map(x => (
-          <Cell
-            key={GRID_LENGTH*this.props.y + x}
-            x={x}
-            y={this.props.y}
-            cellContent={this.props.rowContent[x]}
-          />
-        ))}
+        {/*TODO: Fill in render code for row here*/}
       </div>
     );
   }
