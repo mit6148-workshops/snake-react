@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react"
 import "../../css/app.css"
 
 export default class GameOver extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {

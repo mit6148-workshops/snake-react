@@ -1,26 +1,22 @@
-const { GRID_LENGTH } = require("../config.js");
+const { GRID_LENGTH } = require('../config.js');
 
 
-const randomNumber = () => {
-  return Math.floor(Math.random()*GRID_LENGTH);
-};
+const randomNumber = () => Math.floor(Math.random() * GRID_LENGTH);
 
-const initNewPlayer = () => {
-  return {
-    snakeCoords: [
-      {
-        x: randomNumber(),
-        y: randomNumber()
-      }
-    ],
-    direction: 0
-  }
-};
+const initNewPlayer = () => ({
+  snakeCoords: [
+    {
+      x: randomNumber(),
+      y: randomNumber(),
+    },
+  ],
+  direction: 0,
+});
 
 const getNextSquare = (player) => {
   let y = player.snakeCoords[0].y;
   let x = player.snakeCoords[0].x;
-  switch(player.direction){
+  switch (player.direction) {
     case 0:
       y = player.snakeCoords[0].y <= 0 ? GRID_LENGTH - 1 : player.snakeCoords[0].y - 1; break;
     case 1:
@@ -31,35 +27,31 @@ const getNextSquare = (player) => {
       x = player.snakeCoords[0].x >= GRID_LENGTH - 1 ? 0 : player.snakeCoords[0].x + 1; break;
   }
 
-  return {x: x, y: y};
+  return { x, y };
 };
 
-const initNewGame = () => {
-
-  return {
-    food : {
-      x: randomNumber(),
-      y: randomNumber()
-    },
-    player : initNewPlayer(),
-    game_over: false
-  }
-};
+const initNewGame = () => ({
+  food: {
+    x: randomNumber(),
+    y: randomNumber(),
+  },
+  player: initNewPlayer(),
+  game_over: false,
+});
 
 const nextStep = (currGame) => {
-  let head = getNextSquare(currGame.player);
+  const head = getNextSquare(currGame.player);
   if (head.x === currGame.food.x && head.y === currGame.food.y) {
     currGame.food = {
       x: randomNumber(),
-      y: randomNumber()
-    }
-  }
-  else {
+      y: randomNumber(),
+    };
+  } else {
     currGame.player.snakeCoords.pop();
   }
   for (let i = 0; i < currGame.player.snakeCoords.length; i++) {
-    let coord = currGame.player.snakeCoords[i];
-    if (coord.x === head.x && coord.y === head.y){
+    const coord = currGame.player.snakeCoords[i];
+    if (coord.x === head.x && coord.y === head.y) {
       currGame.game_over = true;
     }
   }
@@ -67,7 +59,6 @@ const nextStep = (currGame) => {
     currGame.player.snakeCoords.unshift(head);
   }
   return currGame;
-
 };
 
 module.exports = { initNewGame, nextStep };

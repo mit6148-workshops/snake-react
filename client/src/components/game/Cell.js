@@ -1,10 +1,10 @@
 import React from "react";
-import '../../css/game.css';
+import "../../css/game.css";
 
 export default class Cell extends React.Component{
 
-  getCellClass = (cell_type) => {
-    switch (cell_type) {
+  getCellClass = (cellContent) => {
+    switch (cellContent) {
       case 0:
         return "empty";
       case 1:
@@ -12,18 +12,18 @@ export default class Cell extends React.Component{
       case 3:
         return "food";
       default:
-        console.log("sad 😞")
+        console.log("sad 😞");
+        return null;
     }
   };
 
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
   render() {
-    return(
-      <div className={"cell " + this.getCellClass(this.props.cell_type)} x={this.props.x} y={this.props.y} />
-    )
+    return (
+      <div className={"cell " + this.getCellClass(this.props.cellContent)} x={this.props.x} y={this.props.y} />
+    );
   }
-
 }

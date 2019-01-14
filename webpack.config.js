@@ -27,9 +27,6 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader'
           }
         ]
       }
