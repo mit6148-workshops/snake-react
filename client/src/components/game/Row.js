@@ -16,21 +16,6 @@ export default class Row extends React.Component{
           y={this.props.y}
           cellContent={this.props.rowContent[0]}
         />
-        <Cell
-          x={1}
-          y={this.props.y}
-          cellContent={this.props.rowContent[1]}
-        />
-        <Cell
-          x={2}
-          y={this.props.y}
-          cellContent={this.props.rowContent[2]}
-        />
-        <Cell
-          x={3}
-          y={this.props.y}
-          cellContent={this.props.rowContent[3]}
-        />
       </div>
     );
   }
