@@ -1,3 +1,3 @@
-const GRID_LENGTH = 30;
+const GRID_LENGTH = 4;
 
 module.exports = { GRID_LENGTH }
