@@ -2,7 +2,6 @@ import React from "react";
 import "../../css/game.css"
 import io from "socket.io-client";
 import { GRID_LENGTH } from "../../../../config";
-import GameOver from "./GameOver";
 import Row from "./Row";
 
 export default class GameBoard extends React.Component {
