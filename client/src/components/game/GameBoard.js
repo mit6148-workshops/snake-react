@@ -60,7 +60,7 @@ export default class GameBoard extends React.Component {
     }
     this.setState({boardContent: newBoard});
     if (data.game_over) {
-      this.setState({isGameOver: true});
+      
     }
   };
 
