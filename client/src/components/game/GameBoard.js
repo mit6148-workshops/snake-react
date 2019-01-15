@@ -68,22 +68,13 @@ export default class GameBoard extends React.Component {
     return (
       <div className="game-container">
         <div className="board">
-            <Row
-              rowContent={this.state.boardContent[0]}
-              y={0}
-            />
-            <Row
-              rowContent={this.state.boardContent[1]}
-              y={1}
-            />
-            <Row
-              rowContent={this.state.boardContent[2]}
-              y={2}
-            />
-            <Row
-              rowContent={this.state.boardContent[3]}
-              y={3}
-            />
+          {Array.from(Array(GRID_LENGTH).keys()).map(y => (
+                <Row
+                  key={y}
+                  rowContent={this.state.boardContent[y]}
+                  y={y}
+                />
+              ))}
         </div>
       </div>
     );
