@@ -3,6 +3,7 @@ import "../../css/game.css"
 import io from "socket.io-client";
 import { GRID_LENGTH } from "../../../../config";
 import Row from "./Row";
+import GameOver from "./GameOver";
 
 export default class GameBoard extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class GameBoard extends React.Component {
     });
 
     this.state = {
+      isGameOver: false,
       boardContent: this.emptyBoard(),
     };
   }
@@ -60,11 +62,14 @@ export default class GameBoard extends React.Component {
     }
     this.setState({boardContent: newBoard});
     if (data.game_over) {
-      // Fill this in with game over code
+      this.setState({isGameOver: true});
     }
   };
 
   render() {
+
+    const gameOverModal = this.state.isGameOver ? (<GameOver /> ) : (null);
+
     return (
       <div className="game-container">
         <div className="board">
@@ -76,6 +81,7 @@ export default class GameBoard extends React.Component {
               />
             ))}
         </div>
+        {gameOverModal}
       </div>
     );
   }
