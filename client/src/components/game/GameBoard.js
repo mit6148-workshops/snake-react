@@ -55,7 +55,7 @@ export default class GameBoard extends React.Component {
 
   updateBoard = (data) => {
     const newBoard = this.emptyBoard();
-    newBoard[data.food.y][data.food.x] = 3;
+    newBoard[data.food.y][data.food.x] = 2;
     for (const i in data.player.snakeCoords) {
       newBoard[data.player.snakeCoords[i].y][data.player.snakeCoords[i].x] = 1;
     }
