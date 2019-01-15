@@ -8,8 +8,8 @@ export default class GameOver extends React.Component {
 
   render() {
     return (
-      <div className={"game-over-modal center"}>
-        <div className={"game-over-text"}>Game Over!</div>
+      <div className="game-over-modal center">
+        <div className="game-over-text">Game Over!</div>
       </div>
     )
   }

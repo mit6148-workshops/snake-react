@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/app.css"
+import "../css/app.css";
 import Route from "react-router-dom/es/Route";
 import Switch from "react-router-dom/es/Switch";
 import GameContainer from "./GameContainer";

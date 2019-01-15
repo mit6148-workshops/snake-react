@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/game.css"
+import "../../css/game.css";
 import io from "socket.io-client";
 import { GRID_LENGTH } from "../../../../config";
 import Row from "./Row";
