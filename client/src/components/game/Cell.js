@@ -9,7 +9,7 @@ export default class Cell extends React.Component{
         return "empty";
       case 1:
         return "my-snake";
-      case 3:
+      case 2:
         return "food";
       default:
         console.log("sad 😞");
