@@ -10,11 +10,15 @@ export default class GameContainer extends React.Component {
     };
   }
 
+  changeGameState = (newStatus) => {
+    this.setState({gameStatus: newStatus});
+  };
+
   render() {
     switch (this.state.gameStatus) {
       case 0:
         return (
-          <HomePage />
+          <HomePage onClickStart={() => {this.changeGameState(1);}}/>
         );
       case 1:
         return (
@@ -22,6 +26,4 @@ export default class GameContainer extends React.Component {
         );
     }
   }
-
-
 }
