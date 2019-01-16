@@ -11,10 +11,7 @@ export default class GameRules extends React.Component {
     return (
       <div className={"center"}>
         <GameTitle />
-
         Rules are good. These are rules.
-        <Link to="/" className={"button"}>Home</Link>
-
       </div>
     );
   }

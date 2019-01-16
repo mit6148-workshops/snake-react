@@ -11,7 +11,6 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/" component={GameContainer} />
-          <Route exact path="/rules" component={GameRules} />
         </Switch>
       </div>
     )

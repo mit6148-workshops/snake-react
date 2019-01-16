@@ -9,7 +9,6 @@ export default class HomePage extends React.Component {
     return (
       <div className="center">
         <GameTitle />
-        <Link to="/rules" className={"button"}>Rules</Link>
         <div className="button" onClick={this.props.onClickStart}>Start</div>
       </div>
     );
