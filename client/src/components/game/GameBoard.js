@@ -65,6 +65,7 @@ export default class GameBoard extends React.Component {
   };
 
   render() {
+    // DEFINE YOUR CONST HERE
     return (
       <div className="game-container">
         <div className="board">
