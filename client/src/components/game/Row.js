@@ -9,10 +9,12 @@ export default class Row extends React.Component{
   }
 
   render() {
+    let cells = [];
+    // WRITE YOUR FOR LOOP HERE
+
     return (
       <div className="board-row">
-        
-        
+        {cells}
       </div>
     );
   }
