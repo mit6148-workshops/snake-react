@@ -9,8 +9,15 @@ export default class Row extends React.Component{
   }
 
   render() {
+    // Example of a Cell component
+    // <Cell
+    //   x={0}
+    //   y={this.props.y}
+    //   cellContent={this.props.rowContent[0]}
+    // />
+
     let cells = [];
-    // WRITE YOUR FOR LOOP HERE
+    // WRITE YOUR LOOP HERE
 
     return (
       <div className="board-row">
