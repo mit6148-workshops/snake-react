@@ -1,14 +1,14 @@
 import React from "react";
 import "../../css/game.css";
 import io from "socket.io-client";
-import { GRID_LENGTH } from "../../../../config";
+import { GRID_LENGTH, SERVER_URI } from "../../../../config";
 import Row from "./Row";
 import GameOver from "./GameOver";
 
 export default class GameBoard extends React.Component {
   constructor(props) {
     super(props);
-    this.socket = io("http://localhost:3000");
+    this.socket = io(SERVER_URI);
     this.socket.on("new_game", (msg) => {
       this.updateBoard(msg);
       document.addEventListener("keydown", this.keyDownBound);
