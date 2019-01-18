@@ -8,7 +8,7 @@ import GameOver from "./GameOver";
 export default class GameBoard extends React.Component {
   constructor(props) {
     super(props);
-    this.socket = io(window.location.hostname);
+    this.socket = io();
     this.socket.on("new_game", (msg) => {
       this.updateBoard(msg);
       document.addEventListener("keydown", this.keyDownBound);
